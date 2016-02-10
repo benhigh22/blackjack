@@ -1,0 +1,30 @@
+deck = ['A','2','3','4','5','6','7','8','9','10','J','Q','K']
+values = {'2': 2,
+          '3': 3,
+          '4': 4,
+          '5': 5,
+          '6': 6,
+          '7': 7,
+          '8': 8,
+          '9': 9,
+          '10': 10,
+          'J': 10,
+          'Q': 10,
+          'K': 10
+         }
+
+rules = """---------
+    Black jack is a card game played between the player and the dealer.
+
+    At the start, both you and the dealer are dealt two cards. The dealer shows
+you his first.
+
+    Your cards, or hand, have a score. You get your score by
+adding up the values of each card in your hand. Every number card's value is
+its number, and any face card is worth 10. Ace is worth 1 or 11, whichever is
+most beneficial for the player. The winner of the game is whoever's score is
+closest to 21. Ties go to the dealer.
+
+    With your two cards, you have the option to hit or stay. Hit means draw one
+more card. Stay means you're happy with your score.
+---------"""

@@ -115,105 +115,42 @@ new_player_total = player_single_card_val + player_hand_value
 new_dealer_total = dealer_single_card_val + dealer_hand_value
 
 
-class Player:
+while True:
+    want_hit = input("Do you want to hit? Enter y or n ")
+    if want_hit == "n":
+        new_player_total == player_hand_value
+        print("You've chosen to stand. ")
+        print(new_player_total)
+        break
 
-    def __init__(self):
-        self.hand = player_hand_creation
-        self.value = player_hand_value
+    elif want_hit == "y":
+        print("You've chosen to hit. ")
+        print("You're card is a " + str(player_single_card_val))
+        print (new_player_total)
+        if new_player_total > 21:
+            print("You busted! ")
+            break
 
-    def show_player_hand(self):
-        return self.hand
+    else:
+        print("Not a valid choice. Do you want to hit? Enter y or n ")
+        continue
 
-    def player_hand(self):
-        return self.value
-
-    def player_hit(self):
-        want_hit = input("Do you want to hit? Enter y or n ")
-        while True:
-            if want_hit == "n":
-                print("You've chosen to stand. ")
-                return player_hand_value
-
-            elif want_hit == "y":
-                print("You've chosen to hit. ")
-                print("You're card is a " + str(player_single_card_val))
-                return new_player_total
-
-
-player = Player()
-show_hand_player = player.show_player_hand()
-val_player_hand = player.player_hand()
-print(player.player_hit())
+while True:
+    if dealer_hand_value >= 17 and dealer_hand_value <= 21:
+        new_dealer_total == dealer_hand_value
+        print("Dealer has chosen to stand. ")
+        print("Dealer's total is " + str(dealer_hand_value))
+        break
 
 
-class Dealer:
-
-    def __init__(self):
-        self.hand = dealer_hand_creation
-        self.value = dealer_hand_value
-
-    def show_dealer_hand(self):
-        return self.hand
-
-    def dealer_hand(self):
-        return self.value
-
-    def dealer_hit(self):
-        while True:
-            if dealer_hand_value >= 17 and dealer_hand_value <= 21:
-                print("Dealer has chosen to stand. ")
-                return("Dealer's total is " + str(dealer_hand_value))
+    elif dealer_hand_value < 17:
+        print("Dealer has chosen to hit. ")
+        print("Dealer's new total is " + str(new_dealer_total))
+        break
 
 
-            elif dealer_hand_value < 17:
-                print("Dealer has chosen to hit. ")
-                return("Dealer's new total is " + str(dealer_hand_value + dealer_single_card_val))
 
 
-    def outcome():
-        if want_hit == "y" and dealer_hand_value < 17:
-            if new_player_total > 21:
-                return "You lose."
-            elif new_dealer_total > 21:
-                return "You win!"
-            elif new_player_total < new_dealer_total:
-                return "You lose."
-            elif new_dealer_total < new_player_total:
-                return "You win!"
-            elif new_player_total == new_dealer_total:
-                return "You push with the dealer."
 
-        if want_hit == "y" and dealer_hand_value >= 17 and dealer_hand_value <= 21:
-            if new_player_total > 21:
-                return "You lose."
-            elif new_player_total < dealer_hand_value:
-                return "You lose."
-            elif dealer_hand_value < new_player_total:
-                return "You win!"
-            elif new_player_total == dealer_hand_value:
-                return "You push with the dealer."
 
-        elif want_hit == "n" and dealer_hand_value < 17:
-            if new_dealer_total > 21:
-                return "You win!"
-            elif player_hand_value > new_dealer_total:
-                return "You win!"
-            elif player_hand_value < new_dealer_total:
-                return "You lose."
-            elif player_hand_value == new_dealer_total:
-                return "You push with the dealer."
-
-        elif want_hit == "n" and dealer_hand_value >= 17 and dealer_hand_value <= 21:
-            if player_hand_value > dealer_hand_value:
-                return "You win!"
-            elif player_hand_value < dealer_hand_value:
-                return "You lose."
-            elif player_hand_value == dealer_hand_value:
-                return "You push with the dealer."
-
-dealer = Dealer
-print(dealer.dealer_hit(dealer_hand_value))
-print(new_player_total)
-print(new_dealer_total)
-print(dealer.outcome())
 

@@ -1,3 +1,4 @@
+
 import random
 
 class Deck:
@@ -101,7 +102,6 @@ class Deck:
 deck = Deck()
 
 deck_creation = deck.make_deck()
-
 player_hit_one = deck.give_player_one()
 dealer_hit_one = deck.give_dealer_one()
 player_single_card_val = deck.get_player_single_value(player_hit_one)
@@ -118,16 +118,18 @@ new_dealer_total = dealer_single_card_val + dealer_hand_value
 while True:
     want_hit = input("Do you want to hit? Enter y or n ")
     if want_hit == "n":
-        new_player_total == player_hand_value
         print("You've chosen to stand. ")
-        print(new_player_total)
+        print(player_hand_value)
         break
 
     elif want_hit == "y":
+        player_hit_one = deck.give_player_one()
+        player_single_card_val = deck.get_player_single_value(player_hit_one)
+        player_hand_value += player_single_card_val
         print("You've chosen to hit. ")
         print("You're card is a " + str(player_single_card_val))
-        print (new_player_total)
-        if new_player_total > 21:
+        print (player_hand_value)
+        if player_hand_value > 21:
             print("You busted! ")
             break
 
@@ -144,12 +146,24 @@ while True:
 
 
     elif dealer_hand_value < 17:
+        dealer_hit_one = deck.give_dealer_one()
+        dealer_single_card_val = deck.get_dealer_single_value(dealer_hit_one)
+        dealer_hand_value += dealer_single_card_val
         print("Dealer has chosen to hit. ")
         print("Dealer's new total is " + str(new_dealer_total))
         break
 
-
-
+def outcome():
+    if new_player_total > 21:
+        return "You lose!"
+    elif new_dealer_total > 21:
+        return "You win!"
+    elif new_player_total > new_dealer_total:
+        return "You win!"
+    elif new_player_total < new_dealer_total:
+        return "You lose."
+    elif new_player_total == new_dealer_total:
+        return "You pushed with the dealer!"
 
 
 

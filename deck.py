@@ -75,11 +75,11 @@ class Deck:
                 if int(value) == 1:
                     value = 10
             except ValueError:
-               if value == 'A':
-                   value = 11
+                if value == 'A':
+                    value = 11
 
-               elif value in 'JQK':
-                   value = 10
+                elif value in 'JQK':
+                    value = 10
         d += int(value)
         return d
 
@@ -98,3 +98,4 @@ class Deck:
         d += int(value)
         return d
 
+deck = Deck()

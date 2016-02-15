@@ -1,7 +1,5 @@
-from deck import Deck
 
-deck = Deck()
-deck.make_deck()
+from deck import deck
 
 class Player:
 

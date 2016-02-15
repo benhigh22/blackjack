@@ -1,4 +1,4 @@
-from deck import Deck
+from deck import deck
 from player import Player
 from dealer import Dealer
 
@@ -20,14 +20,14 @@ class Game:
         elif self.player_value == self.dealer_value:
             return "You pushed with the dealer!"
 
-
 play_again = "y"
 while play_again == "y":
 
-    deck = Deck()
+
+    deck.make_deck()
     player = Player()
     dealer = Dealer()
-    deck_creation = deck.make_deck()
+
 
     print("Your hand is " + str(player.hand) + " which has a value of " + str(player.value))
     print("Dealer's first card is " + str(dealer.hand[0]))
@@ -45,6 +45,8 @@ while play_again == "y":
         continue
 
     game = Game()
+
     print(game.outcome())
+
 
     play_again = input("Do you want to play again? Enter y or n ")

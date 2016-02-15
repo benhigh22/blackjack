@@ -1,8 +1,7 @@
-from deck import Deck
-deck = Deck()
-deck.make_deck()
+from deck import deck
 
-class Dealer:
+
+class Dealer():
 
     def __init__(self):
         self.hand = deck.create_dealer_hand()

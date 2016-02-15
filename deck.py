@@ -97,3 +97,4 @@ class Deck:
                    value = 10
         d += int(value)
         return d
+
